@@ -42,8 +42,7 @@ Git文件
 * git push
 
 创建一个本地的git仓库
-<pre><code>
-mkdir mygit
+<pre><code>mkdir mygit
 cd mygit
 git init
 </code></pre>
@@ -89,8 +88,7 @@ Git的提交id(commit id)是一个摘要值，这个摘要值实际上是个sha1
 
 ---
 ## Git添加、删除、修改与日志  
-<pre><code>
-/etc/gitconfig --system
+<pre><code>/etc/gitconfig --system
 ~/.gitconfig --global
 .git/config --local
 </code></pre>
@@ -129,13 +127,11 @@ Git的提交id(commit id)是一个摘要值，这个摘要值实际上是个sha1
 `git git config --help`  
 `man git-config`  
 ##### Git初始化新仓库
-<pre><code>
-mkdir git_traning && cd git_training
+<pre><code>mkdir git_traning && cd git_training
 git init # 初始化git仓库
 </code></pre>
 ##### 从现有仓库克隆，克隆完整数据， 包括版本信息
-<pre><code>
-git clone git://github.com/zhanglong/zl.git
+<pre><code>git clone git://github.com/zhanglong/zl.git
 git clone git://github.com/zhanglong/zl.git helloworld
 </code></pre>
 ##### 检查当前文件状态
@@ -144,8 +140,7 @@ git clone git://github.com/zhanglong/zl.git helloworld
 ---
 ## `.gitignore`与分支
 `vi .gitignore`创建一个gitignore文件，吧需要忽略的文件名或者目录名加入到文件中忽略文件
-<pre><code>
-*.a # 忽略所有.a结尾的文件
+<pre><code>*.a # 忽略所有.a结尾的文件
 ！lib.a但lib.a除外
 /TODO #仅仅忽略项目跟目录下的TODO文件，不包括subdir/TODO
 build/ #忽略 build/目录下的所有文件
@@ -276,14 +271,12 @@ pull = getch + merge
     * bugfix(hotfix)分支(生产系统当中出现了紧急BUG，用于紧急修复的分支)
 
 #### git最推荐远程使用SSH的协议
-<pre><code>
-git remote add origin SSH_URL
+<pre><code>git remote add origin SSH_URL
 git remote origin
 </code></pre>
 使用SSH上传到github
 windows上使用PuTTY，可以使用整个一套的SSH命令
-<pre><code>
-cd
+<pre><code>cd
 cd .ssh
 vi know_hosts
 which ssh-keygen
@@ -356,25 +349,23 @@ cd .ssh //查看公钥私钥
 
 ---
 To push the current branch and set the remote as upstream,use
-<pre><code>
-git push --set-upstream origind develop
+<pre><code>git push --set-upstream origind develop
 git checkout -b develop origin/develop
 </code></pre>
 #### 新建一个develop追踪来自origin/develop分支
-<pre><code>
-git push -u origin test
+<pre><code>git push -u origin test
 git checkout --track origin/test
 </code></pre>
 默认起一个和远程分支相同的名字的分支  
 `git branch -d develop`  
 #### 删除一个本地分支  
-`git push`的完整写法:`git push origin src:dest`  
+`git push`的完整写法:  
+`git push origin src:dest`  
 `git push origin: develop`  
 将本地的一个空分支push到远程，相当于删除develop分支  
 `git push --delete develop`  
 新版本的删除远程分支的做法
-<pre><code>
-git push origin HEAD:develop2
+<pre><code>git push origin HEAD:develop2
 git push origin develop
 </code></pre>
 `git push origin develop:develop2`  
@@ -399,8 +390,7 @@ HEAD标记:HEAD文件是一个指向当前所在分支的运用标识符，该�
 当执行`git commit`命令时，git会创建一个commit对象，并且将这个commit对象的parent指针设置为HEAD所指向的引用的sha-1值  
 我们对于HEAD修改的任何操作，都会被`git reflog`命令完整的记录下来，如果手工修改HEAD文件，信息不会被记录下来，是非常危险的  
 实际上，我们可以通过git底层命令symbolic-ref来实现对HEAD文件内容的修改，但是也不会被保存  
-<pre><code>
-git symbolic-ref HEAD // 读取HEAD文件
+<pre><code>git symbolic-ref HEAD // 读取HEAD文件
 git symbolic-ref HEAD refs/heads/develop // 且还到develop分支
 </code></pre>
 
@@ -465,8 +455,7 @@ github针对整个帐号的sshkey，在帐号的setting中设置
 `git submodule foreach git pull`  
 更新所有的子模块  
 克隆带有sumbodule的仓库时不能克隆模块
-<pre><code>
-git clone url your_name
+<pre><code>git clone url your_name
 cd mymodule
 git submodule init
 git submodule update --recursive
@@ -475,8 +464,7 @@ git submodule update --recursive
 `git clone url your_name --revursive`  
 可以将子模块一并克隆下来  
 #### 删除module
-<pre><code>
-git rm --cached mydule
+<pre><code>git rm --cached mydule
 rm -rf mydule
 git add .
 git commit -m 'remove some module'
@@ -514,8 +502,7 @@ rebase含义
 
 ---
 rebase的功能类似merge，不过二者的工作方式有着显著的差异
-<pre><code>
-git checkout myword
+<pre><code>git checkout myword
 git rebase origin
 </code></pre>
 rebase 注意事项  
@@ -536,5 +523,4 @@ GitLab配置信息在 `/etc/gitlab/gitlab.rb`
 2. 配置完之后执行 gitlab-ctl reconfigure，使配置成效
 
 ---
-
 
